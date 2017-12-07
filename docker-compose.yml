@@ -27,18 +27,20 @@ services:
       - POSTGRES_USER=sonar
       - POSTGRES_PASSWORD=sonar
     volumes:
-      - postgresql:/var/lib/postgresql
-      # This needs explicit mapping due to https://github.com/docker-library/postgres/blob/4e48e3228a30763913ece952c611e5e9b95c8759/Dockerfile.template#L52
-      - postgresql_data:/var/lib/postgresql/data
+#      - postgresql:/var/lib/postgresql
+#      # This needs explicit mapping due to https://github.com/docker-library/postgres/blob/4e48e3228a30763913ece952c611e5e9b95c8759/Dockerfile.template#L52
+#      - postgresql_data:/var/lib/postgresql/data
+      - ./postgresql/postgresql:/var/lib/postgresql
+      - ./postgresql/data:/var/lib/postgresql/data
 
 networks:
   sonarnet:
     driver: bridge
 
-volumes:
+#volumes:
 #  sonarqube_conf: 
 #  sonarqube_data:
 #  sonarqube_extensions: 
 #  sonarqube_bundled-plugins: 
-  postgresql: 
-  postgresql_data: 
+#  postgresql: 
+#  postgresql_data: 
