@@ -2,9 +2,9 @@ version: "2"
 
 services:
   sonarqube:
-    image: lmanzoni/docker-sonarqube
+    image: lmanzoni/docker-sonarqube:5.6.7
     ports:
-      - "9000:9000"
+      - "9567:9000"
     networks:
       - sonarnet
     environment:
@@ -18,9 +18,12 @@ services:
       - ./sonarqube/data:/opt/sonarqube/data
       - ./sonarqube/extensions:/opt/sonarqube/extensions
       - ./sonarqube/bundled-plugins:/opt/sonarqube/lib/bundled-plugins
+      - ./sonarqube/logs:/opt/sonarqube/logs
 
   db:
-    image: postgres
+    image: postgres:9
+#    ports:
+#      - "5432:5432"
     networks:
       - sonarnet
     environment:
