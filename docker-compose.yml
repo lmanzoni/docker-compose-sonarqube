@@ -3,6 +3,7 @@ version: "2"
 services:
   sonarqube:
     image: lmanzoni/docker-sonarqube:6.7.1
+#    build: ../docker-sonarqube/6.7.1
     ports:
       - "9000:9000"
     networks:
@@ -18,7 +19,7 @@ services:
       - ./sonarqube/data:/opt/sonarqube/data
       - ./sonarqube/extensions:/opt/sonarqube/extensions
       - ./sonarqube/bundled-plugins:/opt/sonarqube/lib/bundled-plugins
-
+#      - ../docker-sonarqube/6.7.1/run.sh:/opt/sonarqube/bin/run.sh
   db:
     image: postgres
     networks:
