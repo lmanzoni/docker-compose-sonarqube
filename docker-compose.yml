@@ -2,7 +2,7 @@ version: "2"
 
 services:
   sonarqube:
-    image: lmanzoni/docker-sonarqube:7.0
+    image: lmanzoni/docker-sonarqube:7.9
 #    build: ../docker-sonarqube/6.7.1
     ports:
       - "9000:9000"
