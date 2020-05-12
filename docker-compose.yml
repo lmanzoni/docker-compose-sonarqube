@@ -2,13 +2,15 @@ version: "2"
 
 services:
   sonarqube:
-    image: lmanzoni/docker-sonarqube:7.9
+    image: lmanzoni/docker-sonarqube:latest
 #    build: ../docker-sonarqube/6.7.1
     ports:
       - "9000:9000"
     networks:
       - sonarnet
     environment:
+      - SONARQUBE_JDBC_USERNAME=sonar
+      - SONARQUBE_JDBC_PASSWORD=sonar
       - SONARQUBE_JDBC_URL=jdbc:postgresql://db:5432/sonar
     volumes:
 #      - sonarqube_conf:/opt/sonarqube/conf
